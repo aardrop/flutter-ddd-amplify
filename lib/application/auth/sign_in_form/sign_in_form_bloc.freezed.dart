@@ -34,16 +34,24 @@ class _$SignInFormEventTearOff {
     );
   }
 
-  RequestedNewConfirmationCode requestedNewConfirmationCode() {
-    return const RequestedNewConfirmationCode();
-  }
-
   SignUpSwitched signUpSwitched() {
     return const SignUpSwitched();
   }
 
   ConfirmationSwitched confirmationSwitched() {
     return const ConfirmationSwitched();
+  }
+
+  ResetPasswordSwitched resetPasswordSwitched() {
+    return const ResetPasswordSwitched();
+  }
+
+  RequestedNewConfirmationCode requestedNewConfirmationCodePressed() {
+    return const RequestedNewConfirmationCode();
+  }
+
+  RequestedResetPassword requestedResetPasswordPressed() {
+    return const RequestedResetPassword();
   }
 
   RegisterWithEmailAndPasswordPressed registerWithEmailAndPasswordPressed() {
@@ -58,8 +66,12 @@ class _$SignInFormEventTearOff {
     return const SignInWithGooglePressed();
   }
 
-  SubmitConfirmationCode submitConfirmationCode() {
-    return const SubmitConfirmationCode();
+  ConfirmCodePressed confirmCodePressed() {
+    return const ConfirmCodePressed();
+  }
+
+  ReserPasswordPressed reserPasswordPressed() {
+    return const ReserPasswordPressed();
   }
 }
 
@@ -74,13 +86,16 @@ mixin _$SignInFormEvent {
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String confirmationCodeStr)
         confirmationCodeChanged,
-    required TResult Function() requestedNewConfirmationCode,
     required TResult Function() signUpSwitched,
     required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
-    required TResult Function() submitConfirmationCode,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,13 +103,16 @@ mixin _$SignInFormEvent {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
-    TResult Function()? requestedNewConfirmationCode,
     TResult Function()? signUpSwitched,
     TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
-    TResult Function()? submitConfirmationCode,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -104,18 +122,22 @@ mixin _$SignInFormEvent {
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmationCodeChanged value)
         confirmationCodeChanged,
-    required TResult Function(RequestedNewConfirmationCode value)
-        requestedNewConfirmationCode,
     required TResult Function(SignUpSwitched value) signUpSwitched,
     required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
-    required TResult Function(SubmitConfirmationCode value)
-        submitConfirmationCode,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -123,16 +145,20 @@ mixin _$SignInFormEvent {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
-    TResult Function(RequestedNewConfirmationCode value)?
-        requestedNewConfirmationCode,
     TResult Function(SignUpSwitched value)? signUpSwitched,
     TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
-    TResult Function(SubmitConfirmationCode value)? submitConfirmationCode,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -233,13 +259,16 @@ class _$EmailChanged with DiagnosticableTreeMixin implements EmailChanged {
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String confirmationCodeStr)
         confirmationCodeChanged,
-    required TResult Function() requestedNewConfirmationCode,
     required TResult Function() signUpSwitched,
     required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
-    required TResult Function() submitConfirmationCode,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
   }) {
     return emailChanged(emailStr);
   }
@@ -250,13 +279,16 @@ class _$EmailChanged with DiagnosticableTreeMixin implements EmailChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
-    TResult Function()? requestedNewConfirmationCode,
     TResult Function()? signUpSwitched,
     TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
-    TResult Function()? submitConfirmationCode,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -272,18 +304,22 @@ class _$EmailChanged with DiagnosticableTreeMixin implements EmailChanged {
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmationCodeChanged value)
         confirmationCodeChanged,
-    required TResult Function(RequestedNewConfirmationCode value)
-        requestedNewConfirmationCode,
     required TResult Function(SignUpSwitched value) signUpSwitched,
     required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
-    required TResult Function(SubmitConfirmationCode value)
-        submitConfirmationCode,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
   }) {
     return emailChanged(this);
   }
@@ -294,16 +330,20 @@ class _$EmailChanged with DiagnosticableTreeMixin implements EmailChanged {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
-    TResult Function(RequestedNewConfirmationCode value)?
-        requestedNewConfirmationCode,
     TResult Function(SignUpSwitched value)? signUpSwitched,
     TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
-    TResult Function(SubmitConfirmationCode value)? submitConfirmationCode,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -402,13 +442,16 @@ class _$PasswordChanged
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String confirmationCodeStr)
         confirmationCodeChanged,
-    required TResult Function() requestedNewConfirmationCode,
     required TResult Function() signUpSwitched,
     required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
-    required TResult Function() submitConfirmationCode,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
   }) {
     return passwordChanged(passwordStr);
   }
@@ -419,13 +462,16 @@ class _$PasswordChanged
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
-    TResult Function()? requestedNewConfirmationCode,
     TResult Function()? signUpSwitched,
     TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
-    TResult Function()? submitConfirmationCode,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -441,18 +487,22 @@ class _$PasswordChanged
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmationCodeChanged value)
         confirmationCodeChanged,
-    required TResult Function(RequestedNewConfirmationCode value)
-        requestedNewConfirmationCode,
     required TResult Function(SignUpSwitched value) signUpSwitched,
     required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
-    required TResult Function(SubmitConfirmationCode value)
-        submitConfirmationCode,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
   }) {
     return passwordChanged(this);
   }
@@ -463,16 +513,20 @@ class _$PasswordChanged
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
-    TResult Function(RequestedNewConfirmationCode value)?
-        requestedNewConfirmationCode,
     TResult Function(SignUpSwitched value)? signUpSwitched,
     TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
-    TResult Function(SubmitConfirmationCode value)? submitConfirmationCode,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -574,13 +628,16 @@ class _$ConfirmationCodeChanged
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String confirmationCodeStr)
         confirmationCodeChanged,
-    required TResult Function() requestedNewConfirmationCode,
     required TResult Function() signUpSwitched,
     required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
-    required TResult Function() submitConfirmationCode,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
   }) {
     return confirmationCodeChanged(confirmationCodeStr);
   }
@@ -591,13 +648,16 @@ class _$ConfirmationCodeChanged
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
-    TResult Function()? requestedNewConfirmationCode,
     TResult Function()? signUpSwitched,
     TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
-    TResult Function()? submitConfirmationCode,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (confirmationCodeChanged != null) {
@@ -613,18 +673,22 @@ class _$ConfirmationCodeChanged
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmationCodeChanged value)
         confirmationCodeChanged,
-    required TResult Function(RequestedNewConfirmationCode value)
-        requestedNewConfirmationCode,
     required TResult Function(SignUpSwitched value) signUpSwitched,
     required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
-    required TResult Function(SubmitConfirmationCode value)
-        submitConfirmationCode,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
   }) {
     return confirmationCodeChanged(this);
   }
@@ -635,16 +699,20 @@ class _$ConfirmationCodeChanged
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
-    TResult Function(RequestedNewConfirmationCode value)?
-        requestedNewConfirmationCode,
     TResult Function(SignUpSwitched value)? signUpSwitched,
     TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
-    TResult Function(SubmitConfirmationCode value)? submitConfirmationCode,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (confirmationCodeChanged != null) {
@@ -662,147 +730,6 @@ abstract class ConfirmationCodeChanged implements SignInFormEvent {
   @JsonKey(ignore: true)
   $ConfirmationCodeChangedCopyWith<ConfirmationCodeChanged> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RequestedNewConfirmationCodeCopyWith<$Res> {
-  factory $RequestedNewConfirmationCodeCopyWith(
-          RequestedNewConfirmationCode value,
-          $Res Function(RequestedNewConfirmationCode) then) =
-      _$RequestedNewConfirmationCodeCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$RequestedNewConfirmationCodeCopyWithImpl<$Res>
-    extends _$SignInFormEventCopyWithImpl<$Res>
-    implements $RequestedNewConfirmationCodeCopyWith<$Res> {
-  _$RequestedNewConfirmationCodeCopyWithImpl(
-      RequestedNewConfirmationCode _value,
-      $Res Function(RequestedNewConfirmationCode) _then)
-      : super(_value, (v) => _then(v as RequestedNewConfirmationCode));
-
-  @override
-  RequestedNewConfirmationCode get _value =>
-      super._value as RequestedNewConfirmationCode;
-}
-
-/// @nodoc
-
-class _$RequestedNewConfirmationCode
-    with DiagnosticableTreeMixin
-    implements RequestedNewConfirmationCode {
-  const _$RequestedNewConfirmationCode();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SignInFormEvent.requestedNewConfirmationCode()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'SignInFormEvent.requestedNewConfirmationCode'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is RequestedNewConfirmationCode);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String emailStr) emailChanged,
-    required TResult Function(String passwordStr) passwordChanged,
-    required TResult Function(String confirmationCodeStr)
-        confirmationCodeChanged,
-    required TResult Function() requestedNewConfirmationCode,
-    required TResult Function() signUpSwitched,
-    required TResult Function() confirmationSwitched,
-    required TResult Function() registerWithEmailAndPasswordPressed,
-    required TResult Function() signInWithEmailAndPasswordPressed,
-    required TResult Function() signInWithGooglePressed,
-    required TResult Function() submitConfirmationCode,
-  }) {
-    return requestedNewConfirmationCode();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String emailStr)? emailChanged,
-    TResult Function(String passwordStr)? passwordChanged,
-    TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
-    TResult Function()? requestedNewConfirmationCode,
-    TResult Function()? signUpSwitched,
-    TResult Function()? confirmationSwitched,
-    TResult Function()? registerWithEmailAndPasswordPressed,
-    TResult Function()? signInWithEmailAndPasswordPressed,
-    TResult Function()? signInWithGooglePressed,
-    TResult Function()? submitConfirmationCode,
-    required TResult orElse(),
-  }) {
-    if (requestedNewConfirmationCode != null) {
-      return requestedNewConfirmationCode();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(EmailChanged value) emailChanged,
-    required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(ConfirmationCodeChanged value)
-        confirmationCodeChanged,
-    required TResult Function(RequestedNewConfirmationCode value)
-        requestedNewConfirmationCode,
-    required TResult Function(SignUpSwitched value) signUpSwitched,
-    required TResult Function(ConfirmationSwitched value) confirmationSwitched,
-    required TResult Function(RegisterWithEmailAndPasswordPressed value)
-        registerWithEmailAndPasswordPressed,
-    required TResult Function(SignInWithEmailAndPasswordPressed value)
-        signInWithEmailAndPasswordPressed,
-    required TResult Function(SignInWithGooglePressed value)
-        signInWithGooglePressed,
-    required TResult Function(SubmitConfirmationCode value)
-        submitConfirmationCode,
-  }) {
-    return requestedNewConfirmationCode(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(EmailChanged value)? emailChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
-    TResult Function(RequestedNewConfirmationCode value)?
-        requestedNewConfirmationCode,
-    TResult Function(SignUpSwitched value)? signUpSwitched,
-    TResult Function(ConfirmationSwitched value)? confirmationSwitched,
-    TResult Function(RegisterWithEmailAndPasswordPressed value)?
-        registerWithEmailAndPasswordPressed,
-    TResult Function(SignInWithEmailAndPasswordPressed value)?
-        signInWithEmailAndPasswordPressed,
-    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
-    TResult Function(SubmitConfirmationCode value)? submitConfirmationCode,
-    required TResult orElse(),
-  }) {
-    if (requestedNewConfirmationCode != null) {
-      return requestedNewConfirmationCode(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RequestedNewConfirmationCode implements SignInFormEvent {
-  const factory RequestedNewConfirmationCode() = _$RequestedNewConfirmationCode;
 }
 
 /// @nodoc
@@ -856,13 +783,16 @@ class _$SignUpSwitched with DiagnosticableTreeMixin implements SignUpSwitched {
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String confirmationCodeStr)
         confirmationCodeChanged,
-    required TResult Function() requestedNewConfirmationCode,
     required TResult Function() signUpSwitched,
     required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
-    required TResult Function() submitConfirmationCode,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
   }) {
     return signUpSwitched();
   }
@@ -873,13 +803,16 @@ class _$SignUpSwitched with DiagnosticableTreeMixin implements SignUpSwitched {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
-    TResult Function()? requestedNewConfirmationCode,
     TResult Function()? signUpSwitched,
     TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
-    TResult Function()? submitConfirmationCode,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (signUpSwitched != null) {
@@ -895,18 +828,22 @@ class _$SignUpSwitched with DiagnosticableTreeMixin implements SignUpSwitched {
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmationCodeChanged value)
         confirmationCodeChanged,
-    required TResult Function(RequestedNewConfirmationCode value)
-        requestedNewConfirmationCode,
     required TResult Function(SignUpSwitched value) signUpSwitched,
     required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
-    required TResult Function(SubmitConfirmationCode value)
-        submitConfirmationCode,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
   }) {
     return signUpSwitched(this);
   }
@@ -917,16 +854,20 @@ class _$SignUpSwitched with DiagnosticableTreeMixin implements SignUpSwitched {
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
-    TResult Function(RequestedNewConfirmationCode value)?
-        requestedNewConfirmationCode,
     TResult Function(SignUpSwitched value)? signUpSwitched,
     TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
-    TResult Function(SubmitConfirmationCode value)? submitConfirmationCode,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (signUpSwitched != null) {
@@ -994,13 +935,16 @@ class _$ConfirmationSwitched
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String confirmationCodeStr)
         confirmationCodeChanged,
-    required TResult Function() requestedNewConfirmationCode,
     required TResult Function() signUpSwitched,
     required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
-    required TResult Function() submitConfirmationCode,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
   }) {
     return confirmationSwitched();
   }
@@ -1011,13 +955,16 @@ class _$ConfirmationSwitched
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
-    TResult Function()? requestedNewConfirmationCode,
     TResult Function()? signUpSwitched,
     TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
-    TResult Function()? submitConfirmationCode,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (confirmationSwitched != null) {
@@ -1033,18 +980,22 @@ class _$ConfirmationSwitched
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmationCodeChanged value)
         confirmationCodeChanged,
-    required TResult Function(RequestedNewConfirmationCode value)
-        requestedNewConfirmationCode,
     required TResult Function(SignUpSwitched value) signUpSwitched,
     required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
-    required TResult Function(SubmitConfirmationCode value)
-        submitConfirmationCode,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
   }) {
     return confirmationSwitched(this);
   }
@@ -1055,16 +1006,20 @@ class _$ConfirmationSwitched
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
-    TResult Function(RequestedNewConfirmationCode value)?
-        requestedNewConfirmationCode,
     TResult Function(SignUpSwitched value)? signUpSwitched,
     TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
-    TResult Function(SubmitConfirmationCode value)? submitConfirmationCode,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (confirmationSwitched != null) {
@@ -1076,6 +1031,465 @@ class _$ConfirmationSwitched
 
 abstract class ConfirmationSwitched implements SignInFormEvent {
   const factory ConfirmationSwitched() = _$ConfirmationSwitched;
+}
+
+/// @nodoc
+abstract class $ResetPasswordSwitchedCopyWith<$Res> {
+  factory $ResetPasswordSwitchedCopyWith(ResetPasswordSwitched value,
+          $Res Function(ResetPasswordSwitched) then) =
+      _$ResetPasswordSwitchedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ResetPasswordSwitchedCopyWithImpl<$Res>
+    extends _$SignInFormEventCopyWithImpl<$Res>
+    implements $ResetPasswordSwitchedCopyWith<$Res> {
+  _$ResetPasswordSwitchedCopyWithImpl(
+      ResetPasswordSwitched _value, $Res Function(ResetPasswordSwitched) _then)
+      : super(_value, (v) => _then(v as ResetPasswordSwitched));
+
+  @override
+  ResetPasswordSwitched get _value => super._value as ResetPasswordSwitched;
+}
+
+/// @nodoc
+
+class _$ResetPasswordSwitched
+    with DiagnosticableTreeMixin
+    implements ResetPasswordSwitched {
+  const _$ResetPasswordSwitched();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SignInFormEvent.resetPasswordSwitched()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'SignInFormEvent.resetPasswordSwitched'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is ResetPasswordSwitched);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String confirmationCodeStr)
+        confirmationCodeChanged,
+    required TResult Function() signUpSwitched,
+    required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
+    required TResult Function() registerWithEmailAndPasswordPressed,
+    required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() signInWithGooglePressed,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
+  }) {
+    return resetPasswordSwitched();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
+    TResult Function()? signUpSwitched,
+    TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
+    required TResult orElse(),
+  }) {
+    if (resetPasswordSwitched != null) {
+      return resetPasswordSwitched();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmationCodeChanged value)
+        confirmationCodeChanged,
+    required TResult Function(SignUpSwitched value) signUpSwitched,
+    required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
+    required TResult Function(RegisterWithEmailAndPasswordPressed value)
+        registerWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithEmailAndPasswordPressed value)
+        signInWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
+  }) {
+    return resetPasswordSwitched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(SignUpSwitched value)? signUpSwitched,
+    TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
+    required TResult orElse(),
+  }) {
+    if (resetPasswordSwitched != null) {
+      return resetPasswordSwitched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetPasswordSwitched implements SignInFormEvent {
+  const factory ResetPasswordSwitched() = _$ResetPasswordSwitched;
+}
+
+/// @nodoc
+abstract class $RequestedNewConfirmationCodeCopyWith<$Res> {
+  factory $RequestedNewConfirmationCodeCopyWith(
+          RequestedNewConfirmationCode value,
+          $Res Function(RequestedNewConfirmationCode) then) =
+      _$RequestedNewConfirmationCodeCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$RequestedNewConfirmationCodeCopyWithImpl<$Res>
+    extends _$SignInFormEventCopyWithImpl<$Res>
+    implements $RequestedNewConfirmationCodeCopyWith<$Res> {
+  _$RequestedNewConfirmationCodeCopyWithImpl(
+      RequestedNewConfirmationCode _value,
+      $Res Function(RequestedNewConfirmationCode) _then)
+      : super(_value, (v) => _then(v as RequestedNewConfirmationCode));
+
+  @override
+  RequestedNewConfirmationCode get _value =>
+      super._value as RequestedNewConfirmationCode;
+}
+
+/// @nodoc
+
+class _$RequestedNewConfirmationCode
+    with DiagnosticableTreeMixin
+    implements RequestedNewConfirmationCode {
+  const _$RequestedNewConfirmationCode();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SignInFormEvent.requestedNewConfirmationCodePressed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'SignInFormEvent.requestedNewConfirmationCodePressed'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is RequestedNewConfirmationCode);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String confirmationCodeStr)
+        confirmationCodeChanged,
+    required TResult Function() signUpSwitched,
+    required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
+    required TResult Function() registerWithEmailAndPasswordPressed,
+    required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() signInWithGooglePressed,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
+  }) {
+    return requestedNewConfirmationCodePressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
+    TResult Function()? signUpSwitched,
+    TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
+    required TResult orElse(),
+  }) {
+    if (requestedNewConfirmationCodePressed != null) {
+      return requestedNewConfirmationCodePressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmationCodeChanged value)
+        confirmationCodeChanged,
+    required TResult Function(SignUpSwitched value) signUpSwitched,
+    required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
+    required TResult Function(RegisterWithEmailAndPasswordPressed value)
+        registerWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithEmailAndPasswordPressed value)
+        signInWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
+  }) {
+    return requestedNewConfirmationCodePressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(SignUpSwitched value)? signUpSwitched,
+    TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
+    required TResult orElse(),
+  }) {
+    if (requestedNewConfirmationCodePressed != null) {
+      return requestedNewConfirmationCodePressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RequestedNewConfirmationCode implements SignInFormEvent {
+  const factory RequestedNewConfirmationCode() = _$RequestedNewConfirmationCode;
+}
+
+/// @nodoc
+abstract class $RequestedResetPasswordCopyWith<$Res> {
+  factory $RequestedResetPasswordCopyWith(RequestedResetPassword value,
+          $Res Function(RequestedResetPassword) then) =
+      _$RequestedResetPasswordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$RequestedResetPasswordCopyWithImpl<$Res>
+    extends _$SignInFormEventCopyWithImpl<$Res>
+    implements $RequestedResetPasswordCopyWith<$Res> {
+  _$RequestedResetPasswordCopyWithImpl(RequestedResetPassword _value,
+      $Res Function(RequestedResetPassword) _then)
+      : super(_value, (v) => _then(v as RequestedResetPassword));
+
+  @override
+  RequestedResetPassword get _value => super._value as RequestedResetPassword;
+}
+
+/// @nodoc
+
+class _$RequestedResetPassword
+    with DiagnosticableTreeMixin
+    implements RequestedResetPassword {
+  const _$RequestedResetPassword();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SignInFormEvent.requestedResetPasswordPressed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'SignInFormEvent.requestedResetPasswordPressed'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is RequestedResetPassword);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String confirmationCodeStr)
+        confirmationCodeChanged,
+    required TResult Function() signUpSwitched,
+    required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
+    required TResult Function() registerWithEmailAndPasswordPressed,
+    required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() signInWithGooglePressed,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
+  }) {
+    return requestedResetPasswordPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
+    TResult Function()? signUpSwitched,
+    TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
+    required TResult orElse(),
+  }) {
+    if (requestedResetPasswordPressed != null) {
+      return requestedResetPasswordPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmationCodeChanged value)
+        confirmationCodeChanged,
+    required TResult Function(SignUpSwitched value) signUpSwitched,
+    required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
+    required TResult Function(RegisterWithEmailAndPasswordPressed value)
+        registerWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithEmailAndPasswordPressed value)
+        signInWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
+  }) {
+    return requestedResetPasswordPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(SignUpSwitched value)? signUpSwitched,
+    TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
+    required TResult orElse(),
+  }) {
+    if (requestedResetPasswordPressed != null) {
+      return requestedResetPasswordPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RequestedResetPassword implements SignInFormEvent {
+  const factory RequestedResetPassword() = _$RequestedResetPassword;
 }
 
 /// @nodoc
@@ -1136,13 +1550,16 @@ class _$RegisterWithEmailAndPasswordPressed
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String confirmationCodeStr)
         confirmationCodeChanged,
-    required TResult Function() requestedNewConfirmationCode,
     required TResult Function() signUpSwitched,
     required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
-    required TResult Function() submitConfirmationCode,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
   }) {
     return registerWithEmailAndPasswordPressed();
   }
@@ -1153,13 +1570,16 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
-    TResult Function()? requestedNewConfirmationCode,
     TResult Function()? signUpSwitched,
     TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
-    TResult Function()? submitConfirmationCode,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (registerWithEmailAndPasswordPressed != null) {
@@ -1175,18 +1595,22 @@ class _$RegisterWithEmailAndPasswordPressed
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmationCodeChanged value)
         confirmationCodeChanged,
-    required TResult Function(RequestedNewConfirmationCode value)
-        requestedNewConfirmationCode,
     required TResult Function(SignUpSwitched value) signUpSwitched,
     required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
-    required TResult Function(SubmitConfirmationCode value)
-        submitConfirmationCode,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
   }) {
     return registerWithEmailAndPasswordPressed(this);
   }
@@ -1197,16 +1621,20 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
-    TResult Function(RequestedNewConfirmationCode value)?
-        requestedNewConfirmationCode,
     TResult Function(SignUpSwitched value)? signUpSwitched,
     TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
-    TResult Function(SubmitConfirmationCode value)? submitConfirmationCode,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (registerWithEmailAndPasswordPressed != null) {
@@ -1279,13 +1707,16 @@ class _$SignInWithEmailAndPasswordPressed
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String confirmationCodeStr)
         confirmationCodeChanged,
-    required TResult Function() requestedNewConfirmationCode,
     required TResult Function() signUpSwitched,
     required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
-    required TResult Function() submitConfirmationCode,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
   }) {
     return signInWithEmailAndPasswordPressed();
   }
@@ -1296,13 +1727,16 @@ class _$SignInWithEmailAndPasswordPressed
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
-    TResult Function()? requestedNewConfirmationCode,
     TResult Function()? signUpSwitched,
     TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
-    TResult Function()? submitConfirmationCode,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (signInWithEmailAndPasswordPressed != null) {
@@ -1318,18 +1752,22 @@ class _$SignInWithEmailAndPasswordPressed
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmationCodeChanged value)
         confirmationCodeChanged,
-    required TResult Function(RequestedNewConfirmationCode value)
-        requestedNewConfirmationCode,
     required TResult Function(SignUpSwitched value) signUpSwitched,
     required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
-    required TResult Function(SubmitConfirmationCode value)
-        submitConfirmationCode,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
   }) {
     return signInWithEmailAndPasswordPressed(this);
   }
@@ -1340,16 +1778,20 @@ class _$SignInWithEmailAndPasswordPressed
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
-    TResult Function(RequestedNewConfirmationCode value)?
-        requestedNewConfirmationCode,
     TResult Function(SignUpSwitched value)? signUpSwitched,
     TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
-    TResult Function(SubmitConfirmationCode value)? submitConfirmationCode,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (signInWithEmailAndPasswordPressed != null) {
@@ -1418,13 +1860,16 @@ class _$SignInWithGooglePressed
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String confirmationCodeStr)
         confirmationCodeChanged,
-    required TResult Function() requestedNewConfirmationCode,
     required TResult Function() signUpSwitched,
     required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
-    required TResult Function() submitConfirmationCode,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
   }) {
     return signInWithGooglePressed();
   }
@@ -1435,13 +1880,16 @@ class _$SignInWithGooglePressed
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
-    TResult Function()? requestedNewConfirmationCode,
     TResult Function()? signUpSwitched,
     TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
-    TResult Function()? submitConfirmationCode,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (signInWithGooglePressed != null) {
@@ -1457,18 +1905,22 @@ class _$SignInWithGooglePressed
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmationCodeChanged value)
         confirmationCodeChanged,
-    required TResult Function(RequestedNewConfirmationCode value)
-        requestedNewConfirmationCode,
     required TResult Function(SignUpSwitched value) signUpSwitched,
     required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
-    required TResult Function(SubmitConfirmationCode value)
-        submitConfirmationCode,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
   }) {
     return signInWithGooglePressed(this);
   }
@@ -1479,16 +1931,20 @@ class _$SignInWithGooglePressed
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
-    TResult Function(RequestedNewConfirmationCode value)?
-        requestedNewConfirmationCode,
     TResult Function(SignUpSwitched value)? signUpSwitched,
     TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
-    TResult Function(SubmitConfirmationCode value)? submitConfirmationCode,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
     required TResult orElse(),
   }) {
     if (signInWithGooglePressed != null) {
@@ -1503,47 +1959,46 @@ abstract class SignInWithGooglePressed implements SignInFormEvent {
 }
 
 /// @nodoc
-abstract class $SubmitConfirmationCodeCopyWith<$Res> {
-  factory $SubmitConfirmationCodeCopyWith(SubmitConfirmationCode value,
-          $Res Function(SubmitConfirmationCode) then) =
-      _$SubmitConfirmationCodeCopyWithImpl<$Res>;
+abstract class $ConfirmCodePressedCopyWith<$Res> {
+  factory $ConfirmCodePressedCopyWith(
+          ConfirmCodePressed value, $Res Function(ConfirmCodePressed) then) =
+      _$ConfirmCodePressedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SubmitConfirmationCodeCopyWithImpl<$Res>
+class _$ConfirmCodePressedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
-    implements $SubmitConfirmationCodeCopyWith<$Res> {
-  _$SubmitConfirmationCodeCopyWithImpl(SubmitConfirmationCode _value,
-      $Res Function(SubmitConfirmationCode) _then)
-      : super(_value, (v) => _then(v as SubmitConfirmationCode));
+    implements $ConfirmCodePressedCopyWith<$Res> {
+  _$ConfirmCodePressedCopyWithImpl(
+      ConfirmCodePressed _value, $Res Function(ConfirmCodePressed) _then)
+      : super(_value, (v) => _then(v as ConfirmCodePressed));
 
   @override
-  SubmitConfirmationCode get _value => super._value as SubmitConfirmationCode;
+  ConfirmCodePressed get _value => super._value as ConfirmCodePressed;
 }
 
 /// @nodoc
 
-class _$SubmitConfirmationCode
+class _$ConfirmCodePressed
     with DiagnosticableTreeMixin
-    implements SubmitConfirmationCode {
-  const _$SubmitConfirmationCode();
+    implements ConfirmCodePressed {
+  const _$ConfirmCodePressed();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SignInFormEvent.submitConfirmationCode()';
+    return 'SignInFormEvent.confirmCodePressed()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty(
-          'type', 'SignInFormEvent.submitConfirmationCode'));
+      ..add(DiagnosticsProperty('type', 'SignInFormEvent.confirmCodePressed'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SubmitConfirmationCode);
+    return identical(this, other) || (other is ConfirmCodePressed);
   }
 
   @override
@@ -1556,15 +2011,18 @@ class _$SubmitConfirmationCode
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function(String confirmationCodeStr)
         confirmationCodeChanged,
-    required TResult Function() requestedNewConfirmationCode,
     required TResult Function() signUpSwitched,
     required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
-    required TResult Function() submitConfirmationCode,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
   }) {
-    return submitConfirmationCode();
+    return confirmCodePressed();
   }
 
   @override
@@ -1573,17 +2031,20 @@ class _$SubmitConfirmationCode
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
-    TResult Function()? requestedNewConfirmationCode,
     TResult Function()? signUpSwitched,
     TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
-    TResult Function()? submitConfirmationCode,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
     required TResult orElse(),
   }) {
-    if (submitConfirmationCode != null) {
-      return submitConfirmationCode();
+    if (confirmCodePressed != null) {
+      return confirmCodePressed();
     }
     return orElse();
   }
@@ -1595,20 +2056,24 @@ class _$SubmitConfirmationCode
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmationCodeChanged value)
         confirmationCodeChanged,
-    required TResult Function(RequestedNewConfirmationCode value)
-        requestedNewConfirmationCode,
     required TResult Function(SignUpSwitched value) signUpSwitched,
     required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
-    required TResult Function(SubmitConfirmationCode value)
-        submitConfirmationCode,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
   }) {
-    return submitConfirmationCode(this);
+    return confirmCodePressed(this);
   }
 
   @override
@@ -1617,27 +2082,183 @@ class _$SubmitConfirmationCode
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
-    TResult Function(RequestedNewConfirmationCode value)?
-        requestedNewConfirmationCode,
     TResult Function(SignUpSwitched value)? signUpSwitched,
     TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
-    TResult Function(SubmitConfirmationCode value)? submitConfirmationCode,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
     required TResult orElse(),
   }) {
-    if (submitConfirmationCode != null) {
-      return submitConfirmationCode(this);
+    if (confirmCodePressed != null) {
+      return confirmCodePressed(this);
     }
     return orElse();
   }
 }
 
-abstract class SubmitConfirmationCode implements SignInFormEvent {
-  const factory SubmitConfirmationCode() = _$SubmitConfirmationCode;
+abstract class ConfirmCodePressed implements SignInFormEvent {
+  const factory ConfirmCodePressed() = _$ConfirmCodePressed;
+}
+
+/// @nodoc
+abstract class $ReserPasswordPressedCopyWith<$Res> {
+  factory $ReserPasswordPressedCopyWith(ReserPasswordPressed value,
+          $Res Function(ReserPasswordPressed) then) =
+      _$ReserPasswordPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ReserPasswordPressedCopyWithImpl<$Res>
+    extends _$SignInFormEventCopyWithImpl<$Res>
+    implements $ReserPasswordPressedCopyWith<$Res> {
+  _$ReserPasswordPressedCopyWithImpl(
+      ReserPasswordPressed _value, $Res Function(ReserPasswordPressed) _then)
+      : super(_value, (v) => _then(v as ReserPasswordPressed));
+
+  @override
+  ReserPasswordPressed get _value => super._value as ReserPasswordPressed;
+}
+
+/// @nodoc
+
+class _$ReserPasswordPressed
+    with DiagnosticableTreeMixin
+    implements ReserPasswordPressed {
+  const _$ReserPasswordPressed();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SignInFormEvent.reserPasswordPressed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'SignInFormEvent.reserPasswordPressed'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is ReserPasswordPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String confirmationCodeStr)
+        confirmationCodeChanged,
+    required TResult Function() signUpSwitched,
+    required TResult Function() confirmationSwitched,
+    required TResult Function() resetPasswordSwitched,
+    required TResult Function() requestedNewConfirmationCodePressed,
+    required TResult Function() requestedResetPasswordPressed,
+    required TResult Function() registerWithEmailAndPasswordPressed,
+    required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() signInWithGooglePressed,
+    required TResult Function() confirmCodePressed,
+    required TResult Function() reserPasswordPressed,
+  }) {
+    return reserPasswordPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String confirmationCodeStr)? confirmationCodeChanged,
+    TResult Function()? signUpSwitched,
+    TResult Function()? confirmationSwitched,
+    TResult Function()? resetPasswordSwitched,
+    TResult Function()? requestedNewConfirmationCodePressed,
+    TResult Function()? requestedResetPasswordPressed,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    TResult Function()? confirmCodePressed,
+    TResult Function()? reserPasswordPressed,
+    required TResult orElse(),
+  }) {
+    if (reserPasswordPressed != null) {
+      return reserPasswordPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmationCodeChanged value)
+        confirmationCodeChanged,
+    required TResult Function(SignUpSwitched value) signUpSwitched,
+    required TResult Function(ConfirmationSwitched value) confirmationSwitched,
+    required TResult Function(ResetPasswordSwitched value)
+        resetPasswordSwitched,
+    required TResult Function(RequestedNewConfirmationCode value)
+        requestedNewConfirmationCodePressed,
+    required TResult Function(RequestedResetPassword value)
+        requestedResetPasswordPressed,
+    required TResult Function(RegisterWithEmailAndPasswordPressed value)
+        registerWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithEmailAndPasswordPressed value)
+        signInWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+    required TResult Function(ConfirmCodePressed value) confirmCodePressed,
+    required TResult Function(ReserPasswordPressed value) reserPasswordPressed,
+  }) {
+    return reserPasswordPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(SignUpSwitched value)? signUpSwitched,
+    TResult Function(ConfirmationSwitched value)? confirmationSwitched,
+    TResult Function(ResetPasswordSwitched value)? resetPasswordSwitched,
+    TResult Function(RequestedNewConfirmationCode value)?
+        requestedNewConfirmationCodePressed,
+    TResult Function(RequestedResetPassword value)?
+        requestedResetPasswordPressed,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ConfirmCodePressed value)? confirmCodePressed,
+    TResult Function(ReserPasswordPressed value)? reserPasswordPressed,
+    required TResult orElse(),
+  }) {
+    if (reserPasswordPressed != null) {
+      return reserPasswordPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ReserPasswordPressed implements SignInFormEvent {
+  const factory ReserPasswordPressed() = _$ReserPasswordPressed;
 }
 
 /// @nodoc

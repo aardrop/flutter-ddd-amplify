@@ -22,6 +22,16 @@ abstract class IAuthFacade {
     required EmailAddress emailAddress,
   });
 
+  Future<Either<AuthFailure, Unit>> requestResetPassword({
+    required EmailAddress emailAddress,
+  });
+
+  Future<Either<AuthFailure, Unit>> resetPassword({
+    required EmailAddress emailAddress,
+    required ConfirmationCode confirmationCode,
+    required Password password,
+  });
+
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,

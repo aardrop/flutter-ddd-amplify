@@ -36,10 +36,22 @@ class SignInForm extends StatelessWidget {
           break;
         case AuthStage.confirmation:
           submitButtonText = 'CONFIRM';
-          submitForm = const SignInFormEvent.submitConfirmationCode();
+          submitForm = const SignInFormEvent.confirmCodePressed();
           switchButtonText = 'Resend Confirmation Code Email?';
           switchButtonFunction =
-              const SignInFormEvent.requestedNewConfirmationCode();
+              const SignInFormEvent.requestedNewConfirmationCodePressed();
+          break;
+        case AuthStage.requestedResetPassword:
+          submitButtonText = 'Request Reset';
+          submitForm = const SignInFormEvent.requestedResetPasswordPressed();
+          switchButtonText = 'Return to Login';
+          switchButtonFunction = const SignInFormEvent.signUpSwitched();
+          break;
+        case AuthStage.resetPassword:
+          submitButtonText = 'Reset Password';
+          submitForm = const SignInFormEvent.reserPasswordPressed();
+          switchButtonText = 'Return to Login';
+          switchButtonFunction = const SignInFormEvent.signUpSwitched();
           break;
       }
     }
@@ -103,7 +115,8 @@ class SignInForm extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               TextFormField(
-                enabled: state.authStage != AuthStage.confirmation,
+                enabled: state.authStage != AuthStage.confirmation &&
+                    state.authStage != AuthStage.resetPassword,
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.email),
                   labelText: 'Email',
@@ -127,11 +140,14 @@ class SignInForm extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               if (state.authStage == AuthStage.signUp ||
-                  state.authStage == AuthStage.signIn)
+                  state.authStage == AuthStage.signIn ||
+                  state.authStage == AuthStage.resetPassword)
                 TextFormField(
-                    decoration: const InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
-                      labelText: 'Password',
+                    decoration: InputDecoration(
+                      prefixIcon: const Icon(Icons.lock),
+                      labelText: state.authStage == AuthStage.resetPassword
+                          ? 'New Password'
+                          : 'Password',
                     ),
                     autocorrect: false,
                     obscureText: true,
@@ -139,7 +155,8 @@ class SignInForm extends StatelessWidget {
                         .read<SignInFormBloc>()
                         .add(SignInFormEvent.passwordChanged(value)),
                     validator: (_) {
-                      if (state.authStage == AuthStage.signUp) {
+                      if (state.authStage == AuthStage.signUp ||
+                          state.authStage == AuthStage.resetPassword) {
                         return context
                             .read<SignInFormBloc>()
                             .state
@@ -165,7 +182,8 @@ class SignInForm extends StatelessWidget {
                       }
                     }),
               const SizedBox(height: 8),
-              if (state.authStage == AuthStage.signUp)
+              if (state.authStage == AuthStage.signUp ||
+                  state.authStage == AuthStage.resetPassword)
                 TextFormField(
                   key: const Key('confirmPassworkFormField'),
                   decoration: const InputDecoration(
@@ -183,7 +201,8 @@ class SignInForm extends StatelessWidget {
                   },
                 ),
               const SizedBox(height: 8),
-              if (state.authStage == AuthStage.confirmation)
+              if (state.authStage == AuthStage.confirmation ||
+                  state.authStage == AuthStage.resetPassword)
                 TextFormField(
                   key: const Key('confirmationCodeFormField'),
                   initialValue: '',
@@ -245,6 +264,25 @@ class SignInForm extends StatelessWidget {
                   ),
                 ),
               ),
+              if (state.authStage == AuthStage.signIn) ...[
+                const SizedBox(
+                  height: 8,
+                ),
+                TextButton(
+                  onPressed: () {
+                    context
+                        .read<SignInFormBloc>()
+                        .add(const SignInFormEvent.resetPasswordSwitched());
+                  },
+                  child: const Text(
+                    'Forgot Password? No Problem, reset it!',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
               if (state.isSubmitting) ...[
                 const SizedBox(height: 8),
                 const LinearProgressIndicator(),

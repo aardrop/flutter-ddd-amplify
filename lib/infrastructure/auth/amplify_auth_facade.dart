@@ -121,6 +121,35 @@ class AmplifyAuthFacade implements IAuthFacade {
   }
 
   @override
+  Future<Either<AuthFailure, Unit>> resetPassword({
+    required EmailAddress emailAddress,
+    required ConfirmationCode confirmationCode,
+    required Password password,
+  }) async {
+    final emailAddressStr = emailAddress.getOrCrash();
+    final passwordStr = password.getOrCrash();
+    final codeStr = confirmationCode.getOrCrash();
+    try {
+      await Amplify.Auth.confirmPassword(
+        username: emailAddressStr,
+        newPassword: passwordStr,
+        confirmationCode: codeStr,
+      );
+      return right(unit);
+    } on AuthException catch (e) {
+      if (e is CodeMismatchException) {
+        return left(const AuthFailure.invalidConfirmationCode());
+      } else if (e is CodeExpiredException) {
+        return left(const AuthFailure.expiredConfirmationCode());
+      } else if (e is InvalidPasswordException || e is UserNotFoundException) {
+        return left(const AuthFailure.invalidEmailAndPasswordCombination());
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    }
+  }
+
+  @override
   Future<Either<AuthFailure, Unit>> resendConfirmationCode({
     required EmailAddress emailAddress,
   }) async {
@@ -129,6 +158,22 @@ class AmplifyAuthFacade implements IAuthFacade {
       await Amplify.Auth.resendSignUpCode(username: emailAddressStr);
       return right(unit);
     } on AuthException catch (_) {
+      return left(const AuthFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> requestResetPassword({
+    required EmailAddress emailAddress,
+  }) async {
+    final emailAddressStr = emailAddress.getOrCrash();
+    try {
+      await Amplify.Auth.resetPassword(username: emailAddressStr);
+      return right(unit);
+    } on AuthException catch (e) {
+      if (e is InvalidParameterException) {
+        return left(const AuthFailure.invalidEmailAndPasswordCombination());
+      }
       return left(const AuthFailure.serverError());
     }
   }

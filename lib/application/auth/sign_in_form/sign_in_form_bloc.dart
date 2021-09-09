@@ -56,6 +56,56 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       yield state.copyWith(
         authStage: AuthStage.confirmation,
       );
+    }, resetPasswordSwitched: (e) async* {
+      yield state.copyWith(
+        authStage: AuthStage.requestedResetPassword,
+      );
+    }, requestedNewConfirmationCodePressed: (e) async* {
+      Either<AuthFailure, Unit> failureOrSuccess =
+          const Right<AuthFailure, Unit>(unit);
+
+      final isEmailValid = state.emailAddress.isValid();
+      if (isEmailValid) {
+        yield state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        );
+
+        failureOrSuccess = await _authFacade.resendConfirmationCode(
+            emailAddress: state.emailAddress);
+        //TODO: create Future.wait function that has a forced minimum time elapsed to show users a sense of change when backend actions are too fast
+        Future.delayed(const Duration(seconds: 1));
+      }
+
+      yield state.copyWith(
+        isSubmitting: false,
+        showErrorMessages: false,
+        authFailureOrSuccessOption: optionOf(failureOrSuccess),
+      );
+    }, requestedResetPasswordPressed: (e) async* {
+      Either<AuthFailure, Unit> failureOrSuccess =
+          const Right<AuthFailure, Unit>(unit);
+
+      final isEmailValid = state.emailAddress.isValid();
+      if (isEmailValid) {
+        yield state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        );
+
+        failureOrSuccess = await _authFacade.requestResetPassword(
+            emailAddress: state.emailAddress);
+        Future.delayed(const Duration(seconds: 1));
+      }
+
+      yield state.copyWith(
+        isSubmitting: false,
+        showErrorMessages: failureOrSuccess.fold((l) => true, (r) => false),
+        authStage: failureOrSuccess.fold(
+            (l) => AuthStage.requestedResetPassword,
+            (r) => AuthStage.resetPassword),
+        authFailureOrSuccessOption: optionOf(failureOrSuccess),
+      );
     }, registerWithEmailAndPasswordPressed: (e) async* {
       log('register new user required');
       Either<AuthFailure, Unit> failureOrSuccess =
@@ -89,10 +139,6 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
             (f) => optionOf(failureOrSuccess), (a) => none()),
       );
     }, signInWithEmailAndPasswordPressed: (e) async* {
-      log('sign in new user');
-      // yield* _performActionOnAuthFacadeWithEmailAndPassword(
-      //   _authFacade.signInWithEmailAndPassword,
-      // );
       Either<AuthFailure, Unit> failureOrSuccess =
           const Right<AuthFailure, Unit>(unit);
 
@@ -130,7 +176,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         isSubmitting: false,
         authFailureOrSuccessOption: some(failureOrSuccess),
       );
-    }, submitConfirmationCode: (e) async* {
+    }, confirmCodePressed: (e) async* {
       Either<AuthFailure, Unit> failureOrSuccess =
           const Right<AuthFailure, Unit>(unit);
 
@@ -148,34 +194,50 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           password: state.password,
         );
       }
-
       yield state.copyWith(
         isSubmitting: false,
         showErrorMessages: true,
         authFailureOrSuccessOption: optionOf(failureOrSuccess),
       );
-    }, requestedNewConfirmationCode: (e) async* {
+    }, reserPasswordPressed: (e) async* {
       Either<AuthFailure, Unit> failureOrSuccess =
           const Right<AuthFailure, Unit>(unit);
 
       final isEmailValid = state.emailAddress.isValid();
-      if (isEmailValid) {
+      final isPasswordValid = state.password.isValid();
+      final isConfirmationCodeValid = state.confirmationCode.isValid();
+
+      if (isEmailValid && isPasswordValid && isConfirmationCodeValid) {
         yield state.copyWith(
           isSubmitting: true,
           authFailureOrSuccessOption: none(),
         );
 
-        failureOrSuccess = await _authFacade.resendConfirmationCode(
-            emailAddress: state.emailAddress);
-        //TODO: create Future.wait function that has a forced minimum time elapsed to show users a sense of change when backend actions are too fast
-        Future.delayed(const Duration(seconds: 1));
+        failureOrSuccess = await _authFacade.resetPassword(
+          emailAddress: state.emailAddress,
+          password: state.password,
+          confirmationCode: state.confirmationCode,
+        );
+      } else {
+        //catch invalid Email/Password requests without calling infrastructure layer
+        failureOrSuccess =
+            const Left(AuthFailure.invalidEmailAndPasswordCombination());
       }
 
-      yield state.copyWith(
-        isSubmitting: false,
-        showErrorMessages: false,
-        authFailureOrSuccessOption: optionOf(failureOrSuccess),
-      );
+      if (failureOrSuccess.isRight()) {
+        yield state.copyWith(
+          showErrorMessages: false,
+          isSubmitting: false,
+          authStage: AuthStage.signIn,
+          authFailureOrSuccessOption: none(),
+        );
+      } else {
+        yield state.copyWith(
+          isSubmitting: false,
+          showErrorMessages: true,
+          authFailureOrSuccessOption: optionOf(failureOrSuccess),
+        );
+      }
     });
   }
 }
