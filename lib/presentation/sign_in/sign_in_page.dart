@@ -5,6 +5,7 @@ import 'package:flutter_ddd_amplify/application/auth/auth_bloc.dart';
 import 'package:flutter_ddd_amplify/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:flutter_ddd_amplify/injection.dart';
 import 'package:flutter_ddd_amplify/presentation/routes/router.gr.dart';
+import 'package:flutter_ddd_amplify/presentation/sign_in/sign_in_builder.dart';
 import 'package:flutter_ddd_amplify/presentation/sign_in/widgets/sign_in_form.dart';
 
 class SignInPage extends StatelessWidget {
@@ -25,7 +26,7 @@ class SignInPage extends StatelessWidget {
         ),
         body: BlocProvider(
           create: (context) => getIt<SignInFormBloc>(),
-          child: SignInForm(),
+          child: SignInBuilder(),
         ),
       ),
     );

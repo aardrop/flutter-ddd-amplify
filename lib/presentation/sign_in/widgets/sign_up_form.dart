@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ddd_amplify/application/auth/auth_bloc.dart';
 import 'package:flutter_ddd_amplify/application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'package:flutter_ddd_amplify/domain/auth/auth_stage.dart';
 
-class SignInForm extends StatelessWidget {
-  final _signInFormKey = GlobalKey<FormState>();
+class SignUpForm extends StatelessWidget {
+  final _signUpFormKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    print('sign up form built: $_signUpFormKey');
     String authFailureOrSuccessMessage = '';
-    print('sign in form built: $_signInFormKey');
+
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
@@ -38,7 +38,7 @@ class SignInForm extends StatelessWidget {
       },
       builder: (context, state) {
         return Form(
-          key: _signInFormKey,
+          key: _signUpFormKey,
           autovalidateMode: state.showErrorMessages
               ? AutovalidateMode.always
               : AutovalidateMode.disabled,
@@ -46,7 +46,7 @@ class SignInForm extends StatelessWidget {
             padding: const EdgeInsets.all(8),
             children: [
               const Text(
-                'Sign In Form',
+                'Sign Up Form',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20,
@@ -93,15 +93,49 @@ class SignInForm extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               TextFormField(
+                  decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
+                    labelText: 'Password',
+                  ),
+                  autocorrect: false,
+                  obscureText: true,
+                  onChanged: (value) => context
+                      .read<SignInFormBloc>()
+                      .add(SignInFormEvent.passwordChanged(value)),
+                  validator: (_) {
+                    return context
+                        .read<SignInFormBloc>()
+                        .state
+                        .password
+                        .value
+                        .fold(
+                          (f) => f.maybeMap(
+                            shortPassword: (_) =>
+                                'Password must be at least 8 characters',
+                            invalidPassword: (_) {
+                              return '''
+                                Password must contain:
+                                    - a capital letter
+                                    - a lowercase letter
+                                    - a number
+                                    - a special character
+                                    ''';
+                            },
+                            orElse: () => null,
+                          ),
+                          (_) => null,
+                        );
+                  }),
+              const SizedBox(height: 8),
+              TextFormField(
+                key: const Key('confirmPassworkFormField'),
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.lock),
-                  labelText: 'Password',
+                  labelText: 'Confirm Password',
                 ),
                 autocorrect: false,
                 obscureText: true,
-                onChanged: (value) => context
-                    .read<SignInFormBloc>()
-                    .add(SignInFormEvent.passwordChanged(value)),
+                onChanged: (_) {},
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please confirm your password';
@@ -113,14 +147,14 @@ class SignInForm extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   context.read<SignInFormBloc>().add(const SignInFormEvent
-                      .signInWithEmailAndPasswordPressed());
+                      .registerWithEmailAndPasswordPressed());
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.lightBlue, // background
                   onPrimary: Colors.white, // foreground
                 ),
                 child: const Text(
-                  "SIGN IN",
+                  "SIGN UP",
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -134,24 +168,7 @@ class SignInForm extends StatelessWidget {
                       .add(const SignInFormEvent.signUpSwitched());
                 },
                 child: const Text(
-                  'New to Outway? Sign Up',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              TextButton(
-                onPressed: () {
-                  context
-                      .read<SignInFormBloc>()
-                      .add(const SignInFormEvent.resetPasswordSwitched());
-                },
-                child: const Text(
-                  'Forgot Password? No Problem, reset it!',
+                  'Already have an existing account? Sign In',
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
