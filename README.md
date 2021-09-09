@@ -12,7 +12,8 @@ The project currently supports:
     - sign up
     - confirmation code
     - sign out 
-    - auto sign out
+    - auto sign in
+    - forgotten password reset
 
 The project uses: 
 - BLoC state management
